@@ -26,7 +26,7 @@ const Navbar = () => {
       <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary  fixed-top">
           <div className="container-fluid">
-            <Link className="navbar-brand me-auto font-weight-bold" href="/"><b>ReserVista</b></Link>
+            <Link className="navbar-brand me-auto font-weight-bold" href="/"><b>AniZza's Slices</b></Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -34,12 +34,12 @@ const Navbar = () => {
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 {window.localStorage.getItem("authToken") ?
                   <li className="nav-item">
-                    <Link className="nav-link active mx-3" aria-current="page" href="/MyOrder">My Bookings</Link>
+                    <Link className="nav-link active mx-3" aria-current="page" href="/MyOrder">My Order</Link>
                   </li> : null
                 }
                 {window.localStorage.getItem("authToken") ?
                   <li className="nav-link active mx-3 " style={{ "cursor": "pointer" }}>
-                    <span className=" position-relative" onClick={() => { setCartView(true) }}>Past Bookings{" "}
+                    <span className=" position-relative" onClick={() => { setCartView(true) }}>My Cart{" "}
                       <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         {items?.length || 0}
                       </span>

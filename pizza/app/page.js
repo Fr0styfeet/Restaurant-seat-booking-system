@@ -31,7 +31,7 @@ const page = () => {
   }, []);
   return (
     <>
-  <ToastContainer />
+         <ToastContainer />
     <CartProvider>
       <Navbar />
       <Mainimg />
@@ -41,7 +41,7 @@ const page = () => {
             <div key={item._id} className=" col-12 col-md-6 col-lg-3">
               <Showcase
               foodItem={item}
-              // options={item.options[0]}
+              options={item.options[0]}
               />
             </div>
           );

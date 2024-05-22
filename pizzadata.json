@@ -1,0 +1,122 @@
+[
+    {
+        "CategoryName": "Pizza",
+        "name": "Cheese Margherita",
+        "img": "/Images/Cheese_Margherita.jpg",
+        "options": [
+            { "regular": "129", "medium": "199", "large": "299" }
+        ],
+        "description": "A hugely popular margherita, with a deliciously tangy single cheese topping",
+        "type": "Veg"
+    },
+    {
+        "CategoryName": "Pizza",
+        "name": "Corn & Cheese",
+        "img": "/Images/Corn_&_Cheese.jpg",
+        "options": [
+            { "regular": "149", "medium": "249", "large": "349" }
+        ],
+        "description": "Indulge in the harmonious blend of savory Cheese and the sweetness of Golden Corn",
+        "type": "Veg"
+    },
+    {
+        "CategoryName": "Pizza",
+        "name": "Farmhouse",
+        "img": "/Images/Farmhouse.jpg",
+        "options": [
+            { "regular": "199", "medium": "299", "large": "399" }
+        ],
+        "description": "Check out this mouth-watering overload of crunchy, crisp capsicum, succulent mushrooms, and fresh tomatoes",
+        "type": "Veg"
+    },
+    {
+        "CategoryName": "Pizza",
+        "name": "Chicken Dominator",
+        "img": "/Images/chicken_dominator.png",
+        "options": [
+            { "regular": "299", "medium": "399", "large": "499" }
+        ],
+        "description": "Treat your taste buds with Double Pepper Barbecue Chicken, Peri-Peri Chicken, Chicken Tikka & Grilled Chicken Rashers",
+        "type": "Nonveg"
+    },
+    {
+        "CategoryName": "Pizza",
+        "name": "Chicken Golden Delight",
+        "img": "/Images/chicken_golden_delight.png",
+        "options": [
+            { "regular": "349", "medium": "449", "large": "549" }
+        ],
+        "description": "Mmm! Barbeque chicken with a topping of golden corn loaded with extra cheese. Worth its weight in gold!",
+        "type": "Nonveg"
+    },
+    {
+        "CategoryName": "Pizza",
+        "name": "Chicken Fiesta",
+        "img": "/Images/chicken_fiesta.png",
+        "options": [
+            { "regular": "399", "medium": "499", "large": "599" }
+        ],
+        "description": "Immerse in the flavors of perfectly grilled chicken rashers, fiery peri-peri chicken, and the crunch of onions and capsicum",
+        "type": "Nonveg"
+    },
+    {
+        "CategoryName": "Pizza",
+        "name": "Indian Tandoori Paneer",
+        "img": "/Images/IndianTandooriPaneer.jpg",
+        "options": [
+            { "regular": "149", "medium": "249", "large": "349" }
+        ],
+        "description": "It is hot. It is spicy. It is oh-so-Indian. Tandoori paneer with capsicum I red paprika I mint mayo",
+        "type": "Veg"
+    },
+    {
+        "CategoryName": "Pizza",
+        "name": "Mexican Green Wave",
+        "img": "/Images/Mexican_Green_Wave.jpg",
+        "options": [
+            { "regular": "199", "medium": "299", "large": "399" }
+        ],
+        "description": "Pizza loaded with crunchy onions, crisp capsicum, tomatoes and jalapeno with liberal sprinkling of exotic Mexican herbs.",
+        "type": "Veg"
+    },
+    {
+        "CategoryName": "Pizza",
+        "name": "Peppy Paneer",
+        "img": "/Images/Peppy_Paneer.jpg",
+        "options": [
+            { "regular": "249", "medium": "349", "large": "449" }
+        ],
+        "description": "Revel in the succulent goodness of chunky paneer, the crisp freshness of capsicum, and the fiery kick of spicy red pepper.",
+        "type": "Veg"
+    },
+    {
+        "CategoryName": "Pizza",
+        "name": "Indi Chicken Tikka",
+        "img": "/Images/indi_chcicken_tikka.png",
+        "options": [
+            { "regular": "349", "medium": "449", "large": "549" }
+        ],
+        "description": "The wholesome flavour of tandoori masala with Chicken tikka I onion I red paprika I mint mayo",
+        "type": "Nonveg"
+    },
+    {
+        "CategoryName": "Pizza",
+        "name": "Nonveg Supreme",
+        "img": "/Images/nonveg_supreme.png",
+        "options": [
+            { "regular": "399", "medium": "499", "large": "599" }
+        ],
+        "description": "Supreme delight of Black Olives, Onions, Grilled Mushrooms, Pepper BBQ Chicken, Peri-Peri Chicken, Grilled Chicken Rashers",
+        "type": "Nonveg"
+    },
+    {
+        "CategoryName": "Pizza",
+        "name": "Pepper BBQ Chicken",
+        "img": "/Images/pepper_bbq_chicken.png",
+        "options": [
+            { "regular": "449", "medium": "549", "large": "649" }
+        ],
+        "description": "Savory bites of pepper barbecue chicken meet the sweet crunch of onions in a perfect harmony of flavors",
+        "type": "Nonveg"
+    }
+]
