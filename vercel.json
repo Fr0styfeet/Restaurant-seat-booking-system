@@ -1,6 +1,10 @@
 {
   "version": 2,
   "name": "pizza",
-  "builds": [{ "src": "*.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "/" }]
+  "builds": [
+    { "src": "pizza/backend/index.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "pizza/backend/index.js" }
+  ]
 }
