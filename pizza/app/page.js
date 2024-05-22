@@ -41,7 +41,7 @@ const page = () => {
             <div key={item._id} className=" col-12 col-md-6 col-lg-3">
               <Showcase
               foodItem={item}
-              options={item.options[0]}
+              options={item.options}
               />
             </div>
           );
