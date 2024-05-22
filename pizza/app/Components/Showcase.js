@@ -8,7 +8,7 @@ const Showcase = (props) => {
   const router= useRouter()
 let dispatch= useDispatchCart();
   let options = props.options;
-  // let priceOptions = Object.keys(options)
+  let priceOptions = Object.keys(options)
 
   let data=useCart()
   let priceRef=useRef()
@@ -16,10 +16,10 @@ let dispatch= useDispatchCart();
   const [qty,setQty]=useState(1)
   const [size,setSize]=useState("")
 
-  // let finalPrice=qty* parseInt(options[size])
-  // useEffect(()=>{
-  //   setSize(priceRef.current.value)
-  // })
+  let finalPrice=qty* parseInt(options[size])
+  useEffect(()=>{
+    setSize(priceRef.current.value)
+  })
 
 
   const handleAddToCart = async () => {
@@ -65,28 +65,24 @@ let dispatch= useDispatchCart();
           <h5 className="card-title text-center">{props.foodItem.name}</h5>
           <p className="card-text text-center">{props.foodItem.description}
           </p>
-          <div className="container mx-4">
-           <div className="container">Guest count
-           <select className="h-100 w-20 p-2 mx-3 rounded" onChange={(e)=>setQty(e.target.value)}>
+          <div className="container ">
+            <select className="h-100 w-20 p-2 rounded" onChange={(e)=>setQty(e.target.value)}>
                 {Array.from(Array(6),(e,i)=>{
                     return(
                         <option key={i+1} value={i+1}>{i+1}</option>
                     )
                 })}
             </select>
-           </div>
-           {/* <div className="container mt-2">Daytime
-           <select className=" h-100 p-2 mx-3 rounded" onChange={(e)=>setSize(e.target.value)} ref={priceRef}>
+            <select className=" h-100 p-2 m-2 rounded" onChange={(e)=>setSize(e.target.value)} ref={priceRef}>
                   {priceOptions.map((data)=>{
                     return <option key={data} value={data}>{data}</option>
                   })}
             </select>
-           </div> */}
 
-            {/* <div className="d-inline m-2 fs-6">₹{finalPrice}</div> */}
+            <div className="d-inline m-2 fs-6">₹{finalPrice}</div>
           </div>
-          <span href="#" className="btn btn-success mt-3 d-flex flex-column justify-items-center" onClick={handleAddToCart}>
-            Book Now
+          <span href="#" className="btn btn-primary mt-3 d-flex flex-column justify-items-center" onClick={handleAddToCart}>
+            Add to cart
           </span>
         </div>
       </div>
