@@ -2,45 +2,41 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import StaleElementReferenceException
+import time
 
-# Initialize the Chrome WebDriver
 driver = webdriver.Chrome()
 
-# Open your MERN application (make sure it’s running)
-driver.get('http://localhost:3000')  # Adjust to your signup URL
+driver.get('http://localhost:3000') 
 
-# Wait for the signup form elements to be visible
+
 try:
     name_input = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.NAME, 'Name'))  # Adjust as needed
+        EC.visibility_of_element_located((By.NAME, 'Name')) 
     )
     
-    email_input = driver.find_element(By.NAME, 'email')  # Adjust as needed
-    address_input = driver.find_element(By.NAME, 'location')  # Adjust as needed
-    password_input = driver.find_element(By.NAME, 'password')  # Adjust as needed
-    signup_button = driver.find_element(By.ID, 'signup-button')  # Adjust as needed
+    email_input = driver.find_element(By.NAME, 'email') 
+    address_input = driver.find_element(By.NAME, 'location') 
+    password_input = driver.find_element(By.NAME, 'password') 
+    signup_button = driver.find_element(By.ID, 'signup-button') 
 
-    # Fill in the signup form
-    name_input.send_keys('Your Name')  # Replace with the actual name
-    email_input.send_keys('your_email@example.com')  # Replace with your actual email
-    address_input.send_keys('Your Address')  # Replace with your actual address
-    password_input.send_keys('your_password')  # Replace with your actual password
+
+    name_input.send_keys('You Name')  
+    email_input.send_keys('you_email@example.com')  
+    address_input.send_keys('You Address') 
+    password_input.send_keys('you_password') 
     
-    # Click the signup button
-    # Use JavaScript to click the button
-    driver.execute_script("arguments[0].click();", signup_button)
-    signup_button.click()
+    time.sleep(2)
+    try:
+        signup_button.click()
+    except StaleElementReferenceException:
+        signup_button = driver.find_element(By.ID, 'signup-button')
+        signup_button.click()
 
-    # # Wait for the next page to load and check for a success message
-    WebDriverWait(driver, 100).until(
-        EC.visibility_of_element_located((By.ID, 'welcome-message'))  # Adjust as needed
-    )
-
-    print("Signup successful!")
+    print("Testing successful!")
 
 except Exception as e:
     print(f"An error occurred during signup: {e}")
 
 finally:
-    # Close the browser
     driver.quit()

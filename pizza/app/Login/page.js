@@ -24,11 +24,12 @@ const Page = () => {
     console.log(json)
 
     if(!json.success){
-      toast("Enter Valid credentials")
+      // toast("Enter Valid credentials")
+      alert("Enter valid credentials")
     }
     else{
+      alert("Login Successful")
       router.push('/')      
-      toast("Login Success")
       localStorage.setItem("authToken",json.authToken)
       localStorage.setItem("userEmail",cred.email)
       // console.log(localStorage.getItem("authToken"))

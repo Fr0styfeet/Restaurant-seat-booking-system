@@ -25,8 +25,9 @@ const Page = () => {
       alert("Enter Valid credentials")
     }
     else{
+      // toast("Signup Successful")
+      alert("Signup Successful")
       router.push('/')      
-      toast("Signup Success")
     }
   }
 

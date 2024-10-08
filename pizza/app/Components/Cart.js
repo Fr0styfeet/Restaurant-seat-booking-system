@@ -29,6 +29,7 @@ export default function Cart() {
     console.log('respopnse:',response)
     if (response.status===200) {
       dispatch({type:"DROP"})
+      alert("order confirmation successful")
     }
   }
 
@@ -67,7 +68,7 @@ export default function Cart() {
         </table>
         <div><h1 className='fs-2 text-light'>Total Price: {totalPrice}/-</h1></div>
         <div>
-          <button className='btn bg-success btn-lg mt-5 text-white' onClick={handleCashon} > Cash on delivery </button>
+          <button className='btn bg-success btn-lg mt-5 text-white' id='cashondel' onClick={handleCashon} > Cash on delivery </button>
         </div>
       </div>
 

@@ -27,7 +27,8 @@ let dispatch= useDispatchCart();
       router.push("/Login")
     }
     else{
-      toast("Added to cart")
+      // toast("Added to cart")
+      alert("Added to cart")
     let food = []
     for (const item of data) {
       if (item.id === props.foodItem._id) {
@@ -82,7 +83,7 @@ let dispatch= useDispatchCart();
             </div>
             <div className="d-inline m-2 fs-6">₹{finalPrice}</div>
           </div>
-          <span href="#" className="btn btn-primary mt-3 d-flex flex-column justify-items-center" onClick={handleAddToCart}>
+          <span href="#" className="btn btn-primary mt-3 d-flex flex-column justify-items-center" id="booknow-button" onClick={handleAddToCart}>
             Book Now
           </span>
         </div>

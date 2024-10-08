@@ -16,6 +16,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     if (typeof window !== 'undefined') {
+      alert("Signout Successful")
       window.localStorage.removeItem('authToken');
     }
     window.location.reload();
@@ -39,7 +40,7 @@ const Navbar = () => {
                 }
                 {window.localStorage.getItem("authToken") ?
                   <li className="nav-link active mx-3 " style={{ "cursor": "pointer" }}>
-                    <span className=" position-relative" onClick={() => { setCartView(true) }}>My Bookings{" "}
+                    <span className=" position-relative" id="mybookings" onClick={() => { setCartView(true) }}>My Bookings{" "}
                       <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         {items?.length || 0}
                       </span>
@@ -54,12 +55,12 @@ const Navbar = () => {
                   <ul className="dropdown-menu">
                     {!window.localStorage.getItem("authToken") ? (
                       <>
-                        <li><Link className="dropdown-item" href="/Signup">Sign Up</Link></li>
-                        <li><Link className="dropdown-item" href="/Login">Sign In</Link></li>
+                        <li><Link className="dropdown-item" id='signup' href="/Signup">Sign Up</Link></li>
+                        <li><Link className="dropdown-item" id='login' href="/Login">Sign In</Link></li>
                       </>
                     ) : (
                       <>
-                        <li><a className="dropdown-item" href="#" onClick={handleLogout}>Sign Out</a></li>
+                        <li><a className="dropdown-item" id='signout' href="#" onClick={handleLogout}>Sign Out</a></li>
                       </>
                     )}
                   </ul>
