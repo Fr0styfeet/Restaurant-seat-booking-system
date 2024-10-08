@@ -65,8 +65,9 @@ let dispatch= useDispatchCart();
           <h5 className="card-title text-center">{props.foodItem.name}</h5>
           <p className="card-text text-center">{props.foodItem.description}
           </p>
-          <div className="container ">
-            <select className="h-100 w-20 p-2 rounded" onChange={(e)=>setQty(e.target.value)}>
+          <div className="container mx-4">
+           <div className="container">Guest count
+           <select className="h-100 w-20 p-2 mx-3 rounded" onChange={(e)=>setQty(e.target.value)}>
                 {Array.from(Array(6),(e,i)=>{
                     return(
                         <option key={i+1} value={i+1}>{i+1}</option>
@@ -78,11 +79,11 @@ let dispatch= useDispatchCart();
                     return <option key={data} value={data}>{data}</option>
                   })}
             </select>
-
+            </div>
             <div className="d-inline m-2 fs-6">₹{finalPrice}</div>
           </div>
           <span href="#" className="btn btn-primary mt-3 d-flex flex-column justify-items-center" onClick={handleAddToCart}>
-            Add to cart
+            Book Now
           </span>
         </div>
       </div>

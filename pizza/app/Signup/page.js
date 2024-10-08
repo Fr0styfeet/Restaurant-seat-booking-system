@@ -1,9 +1,11 @@
 "use client"
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation'
+
 
 const Page = () => {
-
+  const router = useRouter()
   const [cred,setCred]=useState({Name:" " ,email:" ",location:" ",password:""});
 
   const handleSubmit =async(e)=>{
@@ -21,6 +23,10 @@ const Page = () => {
 
     if(!json.success){
       alert("Enter Valid credentials")
+    }
+    else{
+      router.push('/')      
+      toast("Signup Success")
     }
   }
 
@@ -42,7 +48,7 @@ const Page = () => {
               <label htmlFor="floatingInput">Name</label>
             </div>
             <div className="form-floating mb-3">
-              <input type="email" className="form-control" id="email" placeholder="name@example.com" name='email' value={cred.email} onChange={onchange}/>
+              <input type="email" className="form-control" id="email" placeholder="email@example.com" name='email' value={cred.email} onChange={onchange}/>
               <label htmlFor="floatingInput">Email address</label>
             </div>
              <div className="form-floating mb-3">
@@ -54,7 +60,7 @@ const Page = () => {
               <label htmlFor="floatingInput">Password</label>
             </div>
            
-            <button type="submit" className="btn btn-success btn-lg mt-4">Create Account</button>
+            <button type="submit" id='signup-button' className="btn btn-success btn-lg mt-4">Create Account</button>
             <p className='m-3 text-primary cursor-pointer'><Link href="/Login " >Already a user?</Link></p>
           </div>
           </form>
