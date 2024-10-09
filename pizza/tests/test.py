@@ -8,15 +8,7 @@ import time
 start_time = time.time()
 
 #test cases
-test_cases = {
-    'valid_login': None,     # Test case for valid login
-    'invalid_login': None,   # Test case for invalid login
-    'valid_signup': None,    # Test case for valid signup
-    'invalid_signup': None,  # Test case for invalid signup
-    'add_to_cart': None,     # Test case for add to cart
-    'book_now': None,        # Test case for booking
-    'signout': None,          #test case for signout
-}
+test_cases = { }
 
 driver = webdriver.Chrome()
 url = "http://localhost:3000" 
@@ -37,65 +29,107 @@ valid_username="validusername"
 invalid_username = "invaliduser@example.com"
 invalid_password = ""
 
-### Test Case 1: Invalid Signup ###
+### Test Case 1: No name signup###
 signup = driver.find_element(By.ID, 'signup')
 driver.execute_script("arguments[0].click();", signup)
-time.sleep(2)
+# time.sleep(2)
 WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, email_input_name)))
-driver.find_element(By.NAME, email_input_name).send_keys("") 
-driver.find_element(By.NAME, password_input_name).send_keys("")  
-driver.find_element(By.NAME, 'Name').send_keys(valid_username)
+driver.find_element(By.NAME, email_input_name).send_keys(valid_email)
+driver.find_element(By.NAME, password_input_name).send_keys(valid_password)
+driver.find_element(By.NAME, 'Name').send_keys("")  # Empty Name
 driver.find_element(By.NAME, 'location').send_keys(valid_address)
-time.sleep(2)
 signup_button = driver.find_element(By.ID, 'signup-button')
 driver.execute_script("arguments[0].click();", signup_button)
-time.sleep(2)
+# time.sleep(2)
 
 alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
 alert_message = alert.text
 if "Signup Successful" in alert_message:  
-    test_cases['invalid_signup'] = False
+    test_cases['No_name'] = False
 else: 
-    test_cases['invalid_signup'] = True
+    test_cases['No_name'] = True
 alert.accept()
 
-### Test Case 2: Invalid Login ###
-driver.get(url)
-login = driver.find_element(By.ID, 'login')
-driver.execute_script("arguments[0].click();", login)
-time.sleep(2)
-WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, email_input_name)))
-driver.find_element(By.NAME, email_input_name).send_keys(valid_email)
-driver.find_element(By.NAME, password_input_name).send_keys("")
-time.sleep(2)
-login_button = driver.find_element(By.ID, 'login-button')
-driver.execute_script("arguments[0].click();", login_button)
-time.sleep(2)
-
-alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
-alert_message = alert.text
-if "Login Successful" in alert_message: 
-    test_cases['invalid_login'] = False
-else: 
-    test_cases['invalid_login'] = True
-alert.accept()
-
-
-
-### Test Case 3  Valid Signup ###
+### Test Case : No address signup###
 driver.get(url)
 signup = driver.find_element(By.ID, 'signup')
 driver.execute_script("arguments[0].click();", signup)
-time.sleep(2)
+# time.sleep(2)
+WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, email_input_name)))
+driver.find_element(By.NAME, email_input_name).send_keys(valid_email)
+driver.find_element(By.NAME, password_input_name).send_keys(valid_password)
+driver.find_element(By.NAME, 'Name').send_keys(valid_username)  
+driver.find_element(By.NAME, 'location').send_keys("")
+signup_button = driver.find_element(By.ID, 'signup-button')
+driver.execute_script("arguments[0].click();", signup_button)
+# time.sleep(2)
+
+alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
+alert_message = alert.text
+if "Signup Successful" in alert_message:  
+    test_cases['No_address'] = True
+else: 
+    test_cases['No_address'] = False
+alert.accept()
+
+### Test Case : No emailsignup ###
+driver.get(url)
+signup = driver.find_element(By.ID, 'signup')
+driver.execute_script("arguments[0].click();", signup)
+# time.sleep(2)
+WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, email_input_name)))
+driver.find_element(By.NAME, email_input_name).send_keys("")
+driver.find_element(By.NAME, password_input_name).send_keys(valid_password)
+driver.find_element(By.NAME, 'Name').send_keys(valid_username)  
+driver.find_element(By.NAME, 'location').send_keys(valid_address)
+signup_button = driver.find_element(By.ID, 'signup-button')
+driver.execute_script("arguments[0].click();", signup_button)
+# time.sleep(2)
+
+alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
+alert_message = alert.text
+if "Signup Successful" in alert_message:  
+    test_cases['No_email_signup'] = False
+else: 
+    test_cases['No_email_signup'] = True
+alert.accept()
+
+### Test Case : No password signup###
+driver.get(url)
+signup = driver.find_element(By.ID, 'signup')
+driver.execute_script("arguments[0].click();", signup)
+# time.sleep(2)
+WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, email_input_name)))
+driver.find_element(By.NAME, email_input_name).send_keys(valid_email)
+driver.find_element(By.NAME, password_input_name).send_keys("")
+driver.find_element(By.NAME, 'Name').send_keys(valid_username)  
+driver.find_element(By.NAME, 'location').send_keys(valid_address)
+signup_button = driver.find_element(By.ID, 'signup-button')
+driver.execute_script("arguments[0].click();", signup_button)
+# time.sleep(2)
+
+alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
+alert_message = alert.text
+if "Signup Successful" in alert_message:  
+    test_cases['No_password_signup'] = False
+else: 
+    test_cases['No_password_signup'] = True
+alert.accept()
+
+### Test Case :  Valid Signup ###
+driver.get(url)
+signup = driver.find_element(By.ID, 'signup')
+driver.execute_script("arguments[0].click();", signup)
+# time.sleep(2)
 WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, email_input_name)))
 driver.find_element(By.NAME, email_input_name).send_keys(valid_email)  # Empty email field
 driver.find_element(By.NAME, password_input_name).send_keys(valid_password)  # Invalid short password
 driver.find_element(By.NAME, 'Name').send_keys(valid_username)
 driver.find_element(By.NAME, 'location').send_keys(valid_address)
-time.sleep(2)
+# time.sleep(2)
 signup_button = driver.find_element(By.ID, 'signup-button')
 driver.execute_script("arguments[0].click();", signup_button)
-time.sleep(2)
+# time.sleep(2)
 
 alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
 alert_message = alert.text
@@ -105,18 +139,83 @@ else:
     test_cases['valid_signup'] = False
 alert.accept()
 
+### Test Case :  No email login ###
+driver.get(url)
+login = driver.find_element(By.ID, 'login')
+driver.execute_script("arguments[0].click();", login)
+# time.sleep(2)
+WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, email_input_name)))
+driver.find_element(By.NAME, email_input_name).send_keys("")
+driver.find_element(By.NAME, password_input_name).send_keys(valid_password)
+# time.sleep(2)
+login_button = driver.find_element(By.ID, 'login-button')
+driver.execute_script("arguments[0].click();", login_button)
+# time.sleep(2)
+
+alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
+alert_message = alert.text
+if "Login Successful" in alert_message: 
+    test_cases['No_email_login'] = False
+else: 
+    test_cases['No_email_login'] = True
+alert.accept()
+
+
+
+### Test Case :  No passwrod login ###
+driver.get(url)
+login = driver.find_element(By.ID, 'login')
+driver.execute_script("arguments[0].click();", login)
+# time.sleep(2)
+WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, email_input_name)))
+driver.find_element(By.NAME, email_input_name).send_keys(valid_email)
+driver.find_element(By.NAME, password_input_name).send_keys("")
+# time.sleep(2)
+login_button = driver.find_element(By.ID, 'login-button')
+driver.execute_script("arguments[0].click();", login_button)
+# time.sleep(2)
+
+alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
+alert_message = alert.text
+if "Login Successful" in alert_message: 
+    test_cases['No_password_login'] = False
+else: 
+    test_cases['No_password_login'] = True
+alert.accept()
+
+### Test Case :  No email and passwrod login ###
+driver.get(url)
+login = driver.find_element(By.ID, 'login')
+driver.execute_script("arguments[0].click();", login)
+# time.sleep(2)
+WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, email_input_name)))
+driver.find_element(By.NAME, email_input_name).send_keys("")
+driver.find_element(By.NAME, password_input_name).send_keys("")
+# time.sleep(2)
+login_button = driver.find_element(By.ID, 'login-button')
+driver.execute_script("arguments[0].click();", login_button)
+# time.sleep(2)
+
+alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
+alert_message = alert.text
+if "Login Successful" in alert_message: 
+    test_cases['No_detail_login'] = False
+else: 
+    test_cases['No_detail_login'] = True
+alert.accept()
+
 ### Test Case 4: Valid Login ###
 driver.get(url)
 login = driver.find_element(By.ID, 'login')
 driver.execute_script("arguments[0].click();", login)
-time.sleep(2)
+# time.sleep(2)
 WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, email_input_name)))
 driver.find_element(By.NAME, email_input_name).send_keys(valid_email) 
 driver.find_element(By.NAME, password_input_name).send_keys(valid_password)
-time.sleep(2)
+# time.sleep(2)
 login_button = driver.find_element(By.ID, 'login-button')
 driver.execute_script("arguments[0].click();", login_button)
-time.sleep(2)
+# time.sleep(2)
 
 alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
 alert_message = alert.text
@@ -125,8 +224,6 @@ if "Login Successful" in alert_message:
 else: 
     test_cases['valid_login'] = False
 alert.accept()
-
-### Test Case 5: Signout ###
 
 ### Test Case : Add to Cart ###
 driver.get(url)  
@@ -143,8 +240,7 @@ else:
 alert.accept()
 mybookings = driver.find_element(By.ID, 'mybookings')
 driver.execute_script("arguments[0].click();", mybookings)
-time.sleep(2)
-
+# time.sleep(2)
 
 ### Test Case 6: Book Now ###
 cashondel = driver.find_element(By.ID, 'cashondel')
@@ -158,12 +254,11 @@ else:
     test_cases['book_now'] = False
 alert.accept()
 
-
 driver.get(url)
 ### Test Case 7: sign out ###
 signout = driver.find_element(By.ID, 'signout')
 driver.execute_script("arguments[0].click();", signout)
-time.sleep(2)
+# time.sleep(2)
 
 alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
 alert_message = alert.text
@@ -173,16 +268,15 @@ else:
     test_cases['signout'] = False
 alert.accept()
 
-# Output the results of the test cases
+# Output
 print("Test Case Results:")
 for case, result in test_cases.items():
     print(f"{case}: {'Passed' if result else 'Failed'}")
 
-# Close the browser
 # driver.quit()
 
-# End time and duration
 end_time = time.time()
 print(f"Testing completed in {end_time - start_time:.2f} seconds.")
+
 
 
